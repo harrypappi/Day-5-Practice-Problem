@@ -1,0 +1,28 @@
+#!/bin/bash
+
+for i in {1..5}
+do
+  values[i]=$((RANDOM%900+100))
+done
+
+echo "The generated values are: ${values[*]}"
+
+min=${values[1]}
+max=${values[1]}
+
+for i in "${values[@]}"
+do
+  if [[ "$i" -lt "$min" ]]
+  then
+    min="$i"
+  fi
+
+  if [[ "$i" -gt "$max" ]]
+  then
+    max="$i"
+  fi
+done
+
+Output the minimum and maximum values
+echo "The minimum value is: $min"
+echo "The maximum value is: $max"
